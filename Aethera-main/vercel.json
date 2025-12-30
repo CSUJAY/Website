@@ -22,7 +22,12 @@
     }
   ],
   "env": {
+<<<<<<< HEAD
     "EMAIL_USER": "@email_user",
     "EMAIL_PASS": "@email_pass"
+=======
+    "EMAIL_USER": "EMAIL_USER", 
+    "EMAIL_PASS": "EMAIL_PASS"  
+>>>>>>> 4807aee46c304b4b6b174df05d0b77ba56bf63b8
   }
 }
