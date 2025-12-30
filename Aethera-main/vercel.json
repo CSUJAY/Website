@@ -22,7 +22,7 @@
     }
   ],
   "env": {
-    "EMAIL_USER": "EMAIL_USER", // <-- FIXED: Reference the secret name directly
-    "EMAIL_PASS": "EMAIL_PASS"  // <-- FIXED: Reference the secret name directly
+    "EMAIL_USER": "EMAIL_USER", 
+    "EMAIL_PASS": "EMAIL_PASS"  
   }
 }
