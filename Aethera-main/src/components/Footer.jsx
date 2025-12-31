@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Rocket, Mail, MapPin, Github, Twitter, Linkedin, MessageCircle, Instagram } from 'lucide-react';
+import { Mail, MapPin, Github, Twitter, Linkedin, MessageCircle, Instagram } from 'lucide-react';
+import Logo from '../assets/Logo.png'; // Make sure the path is correct
 
 const Footer = () => {
   const WHATSAPP_LINK = "https://chat.whatsapp.com/HESewWst3e970X0g0eXaRq"; 
@@ -21,8 +22,8 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="bg-cyan-600 p-1.5 rounded-lg">
-                <Rocket className="h-5 w-5 text-white" />
+              <div className="bg-cyan-600 p-1.5 rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
+                <img src={Logo} alt="Aethera Logo" className="h-8 w-auto object-contain" />
               </div>
               <span className="text-xl font-bold">Aethera</span>
             </Link>

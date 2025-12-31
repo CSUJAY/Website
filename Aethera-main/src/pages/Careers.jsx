@@ -1,8 +1,8 @@
 import { Globe, Zap, Shield, Code } from 'lucide-react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Careers = () => {
-
   const [showToast, setShowToast] = useState(false);
 
   const handleOpenForm = () => {
@@ -41,10 +41,22 @@ const Careers = () => {
 
   return (
     <div className="bg-white">
+      {/* SEO */}
+      <Helmet>
+        <title>Careers at Aethera | Join Our Talent Network</title>
+        <meta
+          name="description"
+          content="Explore career opportunities at Aethera, a privacy-first Work OS company. Join our talent network and contribute to secure, agentic systems."
+        />
+      </Helmet>
 
       {/* Toast */}
       {showToast && (
-        <div className="fixed top-5 right-5 bg-black text-white px-4 py-2 rounded-xl shadow-lg text-sm">
+        <div
+          className="fixed top-5 right-5 bg-black text-white px-4 py-2 rounded-xl shadow-lg text-sm"
+          role="alert"
+          aria-live="assertive"
+        >
           Talent Network form opened — complete it when ready.
         </div>
       )}
@@ -62,9 +74,8 @@ const Careers = () => {
       </div>
 
       {/* Culture / Benefits */}
-      <div className="py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900">How We Work</h2>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
@@ -75,7 +86,7 @@ const Careers = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, idx) => (
-              <div key={idx} className="text-center p-6 bg-cyan-50 rounded-xl">
+              <div key={idx} className="text-center p-6 bg-cyan-50 rounded-xl hover:shadow-md transition-shadow">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white text-cyan-600 shadow-sm mb-4">
                   <benefit.icon className="h-6 w-6" />
                 </div>
@@ -85,10 +96,10 @@ const Careers = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Hiring Status */}
-      <div className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
             We’re Not Actively Hiring Right Now
@@ -105,7 +116,7 @@ const Careers = () => {
 
           <button
             onClick={handleOpenForm}
-            className="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-cyan-700 transition-colors"
+            className="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-cyan-700 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500"
           >
             Join Our Talent Network
           </button>
@@ -114,8 +125,7 @@ const Careers = () => {
             We review submissions periodically and reach out when a relevant role opens.
           </p>
         </div>
-      </div>
-
+      </section>
     </div>
   );
 };

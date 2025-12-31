@@ -1,6 +1,7 @@
 import { Calendar, User, ArrowRight, Shield, Code, Search, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Blog = () => {
 
@@ -9,16 +10,18 @@ const Blog = () => {
       title: 'Beyond Encryption: Implementing AES-256-GCM for Data Sovereignty',
       excerpt: 'A deep dive into the authenticated encryption standard (GCM) that powers the Aethera Sovereign Vault.',
       author: 'Sujay (CTO)',
-      date: 'Apr 1, 2025',
+      date: '2025-04-01',
+      displayDate: 'Apr 1, 2025',
       category: 'Sovereign Vault',
       readTime: '7 min read',
-      isDraft: true // <-- MARK AS DRAFT
+      isDraft: true
     },
     {
       title: 'The 4-Layer Agentic Core: How to Synthesize Definitive Answers',
       excerpt: 'Breaking down the Llama3 synthesis process that uses Internal Memory, Web Search, and Scraping.',
       author: 'Shreyas (CEO)',
-      date: 'Mar 25, 2025',
+      date: '2025-03-25',
+      displayDate: 'Mar 25, 2025',
       category: 'Agentic Intelligence',
       readTime: '8 min read',
       isDraft: true
@@ -27,7 +30,8 @@ const Blog = () => {
       title: 'Low-Latency WebRTC & The Hybrid Uplink Protocol',
       excerpt: 'The technical challenges and solutions for multi-user video and external bot deployment (Zoom/Meet/Teams).',
       author: 'Rahul (Head of Web Ops)',
-      date: 'Mar 15, 2025',
+      date: '2025-03-15',
+      displayDate: 'Mar 15, 2025',
       category: 'Core Engineering',
       readTime: '6 min read',
       isDraft: true
@@ -36,7 +40,8 @@ const Blog = () => {
       title: 'Marketing Automation with the [CRM:] Business Tag Engine',
       excerpt: 'Strategies for instant lead capture and pipeline management directly from unstructured meeting data.',
       author: 'Sebastian (Head of Marketing)',
-      date: 'Mar 5, 2025',
+      date: '2025-03-05',
+      displayDate: 'Mar 5, 2025',
       category: 'Work OS Strategy',
       readTime: '5 min read',
       isDraft: true
@@ -73,6 +78,20 @@ const Blog = () => {
 
   return (
     <div className="bg-white">
+      {/* SEO */}
+      <Helmet>
+        <title>Aethera Blog | Technical Insights & Sovereign Work OS</title>
+        <meta
+          name="description"
+          content="Explore technical insights, AES-256 encryption deep dives, LLM architecture, WebRTC protocols, and executive automation from the Aethera team."
+        />
+        <meta
+          name="keywords"
+          content="Aethera, Blog, AES-256-GCM, Sovereign Vault, Agentic Core, Executive Automation, LLM, WebRTC, Technical Articles"
+        />
+      </Helmet>
+
+      {/* Hero */}
       <div className="bg-slate-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl mb-4 text-cyan-400">
@@ -84,12 +103,12 @@ const Blog = () => {
         </div>
       </div>
 
+      {/* Posts */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
             {posts.map((post, idx) => (
-              <div
+              <article
                 key={idx}
                 className="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
               >
@@ -108,10 +127,7 @@ const Blog = () => {
                 <div className="flex-1 p-8 flex flex-col justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-cyan-600">
-                        {post.category}
-                      </span>
-
+                      <span className="text-sm font-medium text-cyan-600">{post.category}</span>
                       {post.isDraft && (
                         <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-700 font-semibold">
                           Coming Soon
@@ -124,7 +140,7 @@ const Blog = () => {
                       to={post.isDraft ? '#' : '/blog/post-slug'}
                       className={post.isDraft ? 'pointer-events-none opacity-70 block mt-2' : 'block mt-2'}
                     >
-                      <p className="text-xl font-bold text-gray-900">{post.title}</p>
+                      <h2 className="text-xl font-bold text-gray-900">{post.title}</h2>
                       <p className="mt-3 text-base text-gray-500">{post.excerpt}</p>
                     </Link>
                   </div>
@@ -137,16 +153,13 @@ const Blog = () => {
                     </div>
 
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">
-                        {post.author}
-                      </p>
-
+                      <p className="text-sm font-medium text-gray-900">{post.author}</p>
                       <div className="flex space-x-1 text-sm text-gray-500">
                         {post.isDraft ? (
                           <span className="text-amber-600 font-semibold">Draft in Progress</span>
                         ) : (
                           <>
-                            <time dateTime={post.date}>{post.date}</time>
+                            <time dateTime={post.date}>{post.displayDate}</time>
                             <span aria-hidden="true">&middot;</span>
                             <span>{post.readTime}</span>
                           </>
@@ -155,12 +168,11 @@ const Blog = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
-
           </div>
 
-          {/* Newsletter Section (unchanged) */}
+          {/* Newsletter */}
           <div className="mt-20 bg-slate-900 rounded-2xl p-8 md:p-16 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Subscribe to Sovereign System Insights</h2>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -184,7 +196,6 @@ const Blog = () => {
 
             <form onSubmit={handleGoogleFormSubmit} className="max-w-md mx-auto flex gap-4 flex-col sm:flex-row">
               <input
-                id="email-address"
                 type="email"
                 value={newsletterEmail}
                 onChange={(e) => { setNewsletterEmail(e.target.value); setFormError(''); }}
