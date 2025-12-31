@@ -1,18 +1,16 @@
 import { Link } from 'react-router-dom';
-import { Rocket, Mail, Phone, MapPin, Github, Twitter, Linkedin, Facebook, MessageCircle, Instagram } from 'lucide-react';
+import { Rocket, Mail, MapPin, Github, Twitter, Linkedin, MessageCircle, Instagram } from 'lucide-react';
 
 const Footer = () => {
-  // Use the same links as Contact.jsx for consistency
   const WHATSAPP_LINK = "https://chat.whatsapp.com/HESewWst3e970X0g0eXaRq"; 
   const INSTAGRAM_LINK = "https://www.instagram.com/aethera5785/?utm_source=qr&igsh=ZTRpZjlzMXRsOHB4#"; 
 
-  // Combined and structured array for all social links
   const socialLinks = [
     { Icon: Twitter, href: "#", color: 'hover:bg-cyan-600' },
     { Icon: Github, href: "#", color: 'hover:bg-cyan-600' },
     { Icon: Linkedin, href: "#", color: 'hover:bg-cyan-600' },
-    { Icon: Instagram, href: INSTAGRAM_LINK, color: 'hover:bg-pink-600' }, // Specific color for Instagram
-    { Icon: MessageCircle, href: WHATSAPP_LINK, color: 'hover:bg-green-600' }, // Specific color for WhatsApp
+    { Icon: Instagram, href: INSTAGRAM_LINK, color: 'hover:bg-pink-600' },
+    { Icon: MessageCircle, href: WHATSAPP_LINK, color: 'hover:bg-green-600' },
   ];
   
   return (
@@ -29,7 +27,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Aethera</span>
             </Link>
             <p className="text-slate-400 mb-6 leading-relaxed">
-              Architecting the Sovereign Work OS. We build secure, agentic, and fully automated solutions under the mandate of AES-256-GCM data protection.
+              Architecting the Sovereign Work OS. Secure, agentic, and fully automated solutions under AES-256-GCM data protection.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((item, index) => (
@@ -38,7 +36,7 @@ const Footer = () => {
                   href={item.href}
                   target={item.href !== "#" ? "_blank" : "_self"}
                   rel="noopener noreferrer"
-                  className={`bg-slate-800 p-2 rounded-full text-slate-400 hover:text-white transition-all duration-300 ${item.color}`} // Using item.color
+                  className={`bg-slate-800 p-2 rounded-full text-slate-400 hover:text-white transition-all duration-300 ${item.color}`}
                 >
                   <item.Icon className="h-5 w-5" />
                 </a>
@@ -50,16 +48,26 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Company</h3>
             <ul className="space-y-4">
-              {['About Us', 'Careers', 'Blog', 'Contact Us'].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={`/${item.toLowerCase().replace(' ', '-')}`}
-                    className="text-slate-400 hover:text-cyan-400 transition-colors"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/about" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -68,19 +76,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Work OS Features</h3>
             <ul className="space-y-4">
               <li>
-                  <Link to="/platform" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                      Platform (Work OS)
-                  </Link>
+                <Link to="/platform" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Platform (Work OS)
+                </Link>
               </li>
               <li>
-                  <Link to="/intelligence" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                      Agentic Intelligence
-                  </Link>
+                <Link to="/intelligence" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Agentic Intelligence
+                </Link>
               </li>
               <li>
-                  <Link to="/sovereign-vault" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                      Sovereign Vault
-                  </Link>
+                <Link to="/sovereign-vault" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Sovereign Vault
+                </Link>
               </li>
             </ul>
           </div>

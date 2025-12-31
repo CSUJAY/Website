@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Rocket, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
+
+// Import logo from assets folder
+import AetheraAILogo from '../assets/Logo.png'; // Adjust path if Navbar.jsx is in Pages
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,11 +24,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    // --- START: MODIFIED NAVIGATION LINKS ---
-    { name: 'Platform (Work OS)', path: '/platform' },           // Renamed from 'Services' to 'Platform (Work OS)'
-    { name: 'Sovereign Vault', path: '/sovereign-vault' },     // Renamed from 'Technologies' to 'Sovereign Vault'
-    { name: 'Agentic Intelligence', path: '/intelligence' },   // Renamed from 'Products' to 'Agentic Intelligence'
-    // --- END: MODIFIED NAVIGATION LINKS ---
+    { name: 'Platform (Work OS)', path: '/platform' },
+    { name: 'Sovereign Vault', path: '/sovereign-vault' },
+    { name: 'Agentic Intelligence', path: '/intelligence' },
     { name: 'About', path: '/about' },
     { name: 'Careers', path: '/careers' },
     { name: 'Blog', path: '/blog' },
@@ -41,13 +42,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Rocket className="h-6 w-6 text-white" />
-            </div>
-            <span className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 ${!isScrolled && location.pathname === '/' ? 'text-white' : ''}`}>
-              Aethera
-            </span>
+          <Link to="/" className="flex items-center">
+            <img
+              src={AetheraAILogo}
+              alt="Aethera AI Logo"
+              className="h-12 w-auto md:h-14 lg:h-16" // Bigger and responsive logo
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,10 +58,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-colors duration-300 hover:text-blue-600 ${
                   location.pathname === link.path
-                    ? 'text-blue-600'
-                    : isScrolled || location.pathname !== '/'
-                    ? 'text-gray-700'
-                    : 'text-gray-100 hover:text-white'
+                    ? 'text-blue-600' // Active link
+                    : 'text-gray-700' // Default link
                 }`}
               >
                 {link.name}
@@ -80,9 +78,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md transition-colors ${
-                isScrolled || location.pathname !== '/' ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className="p-2 rounded-md transition-colors text-gray-700 hover:bg-gray-100"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

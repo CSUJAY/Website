@@ -1,4 +1,4 @@
-import { ArrowRight, Code, Cloud, Database, Shield, Smartphone, Zap, Search, Key, KanbanSquare } from 'lucide-react'; // Added new icons
+import { ArrowRight, Search, Key, KanbanSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -6,8 +6,10 @@ const Home = () => {
     <div className="bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-cyan-700 to-blue-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+        {/* Optional subtle grid overlay, low z-index so content is visible */}
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px] z-0" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
           <div className="lg:w-2/3">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
               Aethera: The <span className="text-cyan-300">Sovereign Work OS</span>
@@ -17,14 +19,14 @@ const Home = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/intelligence" // Link to the Agentic Core feature page
+                to="/intelligence"
                 className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-cyan-700 bg-white hover:bg-cyan-50 transition-colors"
               >
                 Explore Agentic Core
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                to="/sovereign-vault" // Link to the Security feature page
+                to="/sovereign-vault"
                 className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-800 bg-opacity-40 hover:bg-opacity-50 backdrop-blur-sm transition-colors"
               >
                 View Security Manifesto
@@ -56,7 +58,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Replaced generic services with the three core branded pages */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -93,10 +94,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ... (Keep Why Choose Us / Testimonials / CTA but change colors/text) ... */}
-      
       {/* Why Choose Us */}
-      <section className="py-20 bg-slate-900 text-white"> {/* Updated to slate-900 to match dashboard */}
+      <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -168,9 +167,6 @@ const Home = () => {
           </Link>
         </div>
       </section>
-      
-      {/* (Other sections remain or are removed for brevity) */}
-      
     </div>
   );
 };
