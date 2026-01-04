@@ -129,16 +129,17 @@ const About = () => {
             <p className="mt-2 text-base sm:text-lg text-gray-500">The architects of the Sovereign Vault.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
+          {/* CHANGED TO FLEX FOR SINGLE-LINE HORIZONTAL SCROLL */}
+          <div className="flex overflow-x-auto space-x-6 sm:space-x-10 pb-4">
             {[
               { name: 'Shreyas', role: 'CEO & Founder', bio: 'Drives the strategic mandate for Sovereign Work OS adoption.' },
               { name: 'Sujay', role: 'CTO', bio: 'Architect of the Agentic Core and encrypted execution pipeline.' },
-              // SANJAY ADDED HERE
               { name: 'Sanjay', role: 'Head of Data & Infrastructure', bio: 'Oversees the secure backend, data sovereignty, and robust platform infrastructure.' },
               { name: 'Rahul', role: 'Head of Web Operations', bio: 'Ensures platform reliability, rollout, and infrastructure resilience.' },
               { name: 'Sebastian', role: 'Head of Marketing & Optimization', bio: 'Leads positioning, strategy, and adoption growth.' }
             ].map((member, idx) => (
-              <div key={idx} className="bg-white shadow-sm hover:shadow-md rounded-xl overflow-hidden transition-shadow">
+              // ADDED w-* AND flex-shrink-0 TO CARD
+              <div key={idx} className="bg-white shadow-sm hover:shadow-md rounded-xl overflow-hidden transition-shadow w-64 sm:w-72 flex-shrink-0">
                 <div className="h-36 sm:h-40 bg-gray-200 flex items-center justify-center text-gray-400">
                   <Users className="h-12 sm:h-16 w-12 sm:w-16" />
                 </div>
