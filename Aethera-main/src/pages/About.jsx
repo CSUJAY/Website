@@ -133,6 +133,8 @@ const About = () => {
             {[
               { name: 'Shreyas', role: 'CEO & Founder', bio: 'Drives the strategic mandate for Sovereign Work OS adoption.' },
               { name: 'Sujay', role: 'CTO', bio: 'Architect of the Agentic Core and encrypted execution pipeline.' },
+              // SANJAY ADDED HERE
+              { name: 'Sanjay', role: 'Head of Data & Infrastructure', bio: 'Oversees the secure backend, data sovereignty, and robust platform infrastructure.' },
               { name: 'Rahul', role: 'Head of Web Operations', bio: 'Ensures platform reliability, rollout, and infrastructure resilience.' },
               { name: 'Sebastian', role: 'Head of Marketing & Optimization', bio: 'Leads positioning, strategy, and adoption growth.' }
             ].map((member, idx) => (
