@@ -33,7 +33,11 @@ const Home = () => {
       <section className="relative bg-gradient-to-r from-cyan-700 to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px] z-0" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
+        <div 
+          // FIX APPLIED HERE: Added pt-20 (or pt-24) to push the content down 
+          // to make space for the fixed navbar.
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10"
+        >
           <div className="lg:w-2/3">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
               Private AI Work OS That Turns Meetings Into Action

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
 // Import logo from assets folder
-import AetheraAILogo from '../assets/Logo.png'; // Adjust path if Navbar.jsx is in Pages
+import AetheraAILogo from '../assets/Logo.png'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +12,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Check if scroll is greater than 20 pixels
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
@@ -19,6 +20,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // Close the mobile menu when the route changes
     setIsOpen(false);
   }, [location]);
 
@@ -36,17 +38,20 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
+        // 1. Increased vertical padding for the initial state (py-6)
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+          {/* Logo - Final Adjustment for Alignment */}
+          {/* 3. Added pt-2 to visually nudge the logo down 8px */}
+          <Link to="/" className="flex items-center pt-2"> 
             <img
               src={AetheraAILogo}
               alt="Aethera AI Logo"
-              className="h-12 w-auto md:h-14 lg:h-16" // Bigger and responsive logo
+              // 2. Reduced max height to ensure it fits (h-8/h-10/h-12)
+              className="h-8 w-auto md:h-10 lg:h-12" 
             />
           </Link>
 
